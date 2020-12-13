@@ -1,19 +1,20 @@
-const Note = ({value, onChange}) => {
+import { Input, Textarea } from './input'
+
+const AddNote = ({value, onChange}) => {
   return (
     <>
       <div>
-        <input 
-          type='text'
-          placeholder='Title'
+        <Input 
           name='input'
+          placeholder='Title'
           value={value.input}
           onChange={onChange}
         />
       </div>
       <div>
-        <textarea 
-          placeholder='Take a note...'
+        <Textarea 
           name='textarea'
+          placeholder='Take a note...'
           value={value.textarea}
           onChange={onChange}
         />
@@ -22,4 +23,4 @@ const Note = ({value, onChange}) => {
   )
 };
 
-export default Note
+export default AddNote;
