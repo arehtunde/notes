@@ -12,11 +12,20 @@ const App = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    const options = {
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: false,
+    };
+    const date = new Date();
     
     const noteObject = {
       title: newNote.input,
       content: newNote.textarea,
-      date: new Date().toISOString(),
+      date: new Intl.DateTimeFormat('en-US', options).format(date),
       id: noteArray.length + 1,
     }
 

@@ -5,16 +5,10 @@ const EditNote = ({note}) => {
   const [edit, setEdit] = useState({
     title: note.title, 
     content: note.content,
-    date: note.date,
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const value = event.target.value;
-    setEdit({
-      ...edit,
-      [event.target.name]: value,
-    })
   };
 
   const handleEdit = (event) => {
@@ -39,7 +33,7 @@ const EditNote = ({note}) => {
         value={edit.content}
         onChange={handleEdit}
       />
-      <p>{edit.date}</p>
+      <p>{note.date}</p>
       <button>save</button>
     </form>
   )
