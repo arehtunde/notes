@@ -2,10 +2,12 @@ import './App.css';
 import Header from './components/header';
 import AddNote from './components/addNote';
 import EditNote from './components/editNote'
+import { Input } from './components/input'
 import { useState } from 'react';
 
 const App = () => {
   const [noteArray, setNoteArray] = useState([]);
+  const [search, setSearch] = useState('');
   const [newNote, setNewNote] = useState({
     input: '', textarea: '',
   });
@@ -13,6 +15,7 @@ const App = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    const date = new Date();
     const options = {
       month: 'short',
       day: 'numeric',
@@ -20,7 +23,6 @@ const App = () => {
       minute: 'numeric',
       hour12: false,
     };
-    const date = new Date();
     
     const noteObject = {
       title: newNote.input,
@@ -44,9 +46,22 @@ const App = () => {
     })
   };
 
+  const handleSearch = (event) => {
+    const value = event.target.value;
+
+    setSearch(value)
+  };
+
+  const filterNotes = noteArray.filter(note => 
+    note.title
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
+
   return (
     <div>
       <Header />
+      <Input placeholder='Search notes' onChange={handleSearch} value={search} />
       <form onSubmit={handleSubmit}>
         <AddNote 
           value={newNote}
@@ -56,7 +71,7 @@ const App = () => {
       </form>
 
       {
-        noteArray.map(note => 
+        filterNotes.map(note => 
           <EditNote note={note} key={note.id} />
         )
       }
