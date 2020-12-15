@@ -53,9 +53,8 @@ const App = () => {
   };
 
   const filterNotes = noteArray.filter(note => 
-    note.title
-      .toLowerCase()
-      .includes(search.toLowerCase())
+    note.title.toLowerCase().includes(search.toLowerCase()) || 
+    note.content.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
