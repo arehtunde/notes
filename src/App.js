@@ -48,7 +48,6 @@ const App = () => {
 
   const handleSearch = (event) => {
     const value = event.target.value;
-
     setSearch(value)
   };
 

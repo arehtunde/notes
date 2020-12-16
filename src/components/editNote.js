@@ -34,7 +34,8 @@ const EditNote = ({note}) => {
         onChange={handleEdit}
       />
       <p>{note.date}</p>
-      <button>save</button>
+      <button>Edit</button>
+      <button>Delete</button>
     </form>
   )
 };
