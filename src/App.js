@@ -4,6 +4,7 @@ import EditNote from './components/editNote';
 
 const App = () => {
   const [edit, setEdit] = useState('');
+  const [search, setSearch] = useState('');
   const [text, setText] = useState({
     input: '', textarea: '',
   });
@@ -66,11 +67,27 @@ const App = () => {
     })
     setNoteArray(updatedNote)
     setEdit('')
-  }
+  };
+
+  const handleSearch = (event) => {
+    const value = event.target.value;
+    setSearch(value)
+  };
+
+  const filterNotes = noteArray.filter(note => 
+    note.title.toLowerCase().includes(search.toLowerCase()) || 
+    note.content.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <>
       <h1>Notes</h1>
+      <input 
+        placeholder='Search notes'
+        value={search}  
+        onChange={handleSearch} 
+      />
+
       <AddNote 
         value={text}
         onChange={handleChange}
@@ -78,7 +95,7 @@ const App = () => {
       />
 
       {
-        noteArray.map(note => (
+        filterNotes.map(note => (
           <div key={note.id}>
             <EditNote 
               note={note}
