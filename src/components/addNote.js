@@ -1,25 +1,22 @@
-import { Input, Textarea } from './input'
-
-const AddNote = ({value, onChange}) => {
+const AddNote = ({value, onChange, onSubmit}) => {
   return (
-    <>
-      <div>
-        <Input 
-          name='input'
-          placeholder='Title'
-          value={value.input}
-          onChange={onChange}
-        />
-      </div>
-      <div>
-        <Textarea 
-          name='textarea'
-          placeholder='Take a note...'
-          value={value.textarea}
-          onChange={onChange}
-        />
-      </div>
-    </>
+    <form onSubmit={onSubmit}>
+      <input 
+        name='input'
+        placeholder='Title'
+        value={value.input}
+        onChange={onChange}
+      />
+      
+      <textarea 
+        name='textarea'
+        placeholder='Take a note...'
+        value={value.textarea}
+        onChange={onChange}
+      />
+
+      <button>Add</button>
+    </form>
   )
 };
 

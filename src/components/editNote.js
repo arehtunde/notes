@@ -1,43 +1,27 @@
-import { useState } from 'react';
-import { Input, Textarea } from './input'
+const EditNote = ({note, edit, submitEdit}) => {
+  if (note.id !== edit) {
+    return (
+      <>
+        <div>{note.title}</div>
+        <div>{note.content}</div>
+      </>
+    )
+  } else {
+    return (
+      <form onSubmit={(e) => submitEdit(e, note.id)}>
+        <input 
+          name='input'
+          defaultValue={note.title} 
+        />
 
-const EditNote = ({note}) => {
-  const [edit, setEdit] = useState({
-    title: note.title, 
-    content: note.content,
-  });
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
-
-  const handleEdit = (event) => {
-    const value = event.target.value;
-
-    setEdit({
-      ...edit,
-      [event.target.name]: value,
-    })
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <Input 
-        name='title'
-        value={edit.title}
-        onChange={handleEdit}
-      />
-
-      <Textarea 
-        name='content'
-        value={edit.content}
-        onChange={handleEdit}
-      />
-      <p>{note.date}</p>
-      <button>Edit</button>
-      <button>Delete</button>
-    </form>
-  )
+        <textarea 
+          name='textarea'
+          defaultValue={note.content}
+        />
+        <button>Submit</button>
+      </form>
+    )
+  }
 };
 
 export default EditNote;
