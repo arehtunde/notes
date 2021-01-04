@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import AddNote from './components/addNote';
 import EditNote from './components/editNote';
+import Header from './components/header';
 
 const App = () => {
   const [edit, setEdit] = useState('');
@@ -80,8 +81,8 @@ const App = () => {
   );
 
   return (
-    <>
-      <h1>Notes</h1>
+    <div className='font-sans'>
+      <Header />
       <input 
         placeholder='Search notes'
         value={search}  
@@ -107,7 +108,7 @@ const App = () => {
           </div>
         ))
       }
-    </>
+    </div>
   )
 };
 
