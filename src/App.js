@@ -81,13 +81,16 @@ const App = () => {
   );
 
   return (
-    <div className='font-sans'>
+    <div className='font-sans border-box bg-gray-100'>
       <Header />
-      <input 
-        placeholder='Search notes'
-        value={search}  
-        onChange={handleSearch} 
-      />
+      <div className='mx-2'>
+        <input 
+          className='rounded-full py-1 px-6 my-2 w-full text-lg font-medium italic focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-200 placeholder-gray-600 focus:placeholder-gray-400'
+          placeholder='Search notes'
+          value={search}  
+          onChange={handleSearch} 
+        />
+      </div>
 
       <AddNote 
         value={text}
@@ -97,14 +100,14 @@ const App = () => {
 
       {
         filterNotes.map(note => (
-          <div key={note.id}>
+          <div key={note.id} className='rounded-lg m-2 p-2 bg-white shadow-md'>
             <EditNote 
               note={note}
               edit={edit}
               submitEdit={submitEdit}
+              onEdit={() => setEdit(note.id)}
+              onDelete={() => deleteNote(note.id)}
             />
-            <button onClick={() => setEdit(note.id)}>Edit</button>
-            <button onClick={() => deleteNote(note.id)}>Delete</button>
           </div>
         ))
       }
