@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import AddNote from './components/addNote';
 import EditNote from './components/editNote';
-import Header from './components/header';
+import { Header, Footer } from './components/header';
 
 const App = () => {
   const [edit, setEdit] = useState('');
@@ -83,9 +83,10 @@ const App = () => {
   return (
     <div className='font-sans border-box bg-gray-100'>
       <Header />
-      <div className='mx-2'>
+      <div className='mx-3'>
         <input 
           className='rounded-full py-1 px-6 my-2 w-full text-lg font-medium italic focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-200 placeholder-gray-600 focus:placeholder-gray-400'
+          type='search'
           placeholder='Search notes'
           value={search}  
           onChange={handleSearch} 
@@ -100,7 +101,7 @@ const App = () => {
 
       {
         filterNotes.map(note => (
-          <div key={note.id} className='rounded-lg m-2 p-2 bg-white shadow-md'>
+          <div key={note.id} className='rounded-lg m-3 p-3 bg-white shadow-md'>
             <EditNote 
               note={note}
               edit={edit}
@@ -111,6 +112,8 @@ const App = () => {
           </div>
         ))
       }
+
+      <Footer />
     </div>
   )
 };
