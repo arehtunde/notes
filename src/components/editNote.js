@@ -7,10 +7,16 @@ const EditNote = ({note, edit, submitEdit, onEdit, onDelete}) => {
           <div className='free'>{note.content}</div>
         </div>
 
+        <div></div>
+
         <div className='flex mt-auto'>
-          <button className='text-black font-medium rounded-lg px-2 py-0.5 mr-auto bg-yellow-300 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 transform hover:scale-105' onClick={onEdit}>View</button>
+          <button className='mr-auto focus:outline-none transform hover:scale-110' onClick={onEdit}>
+            <svg data-src="https://s.svgbox.net/hero-solid.svg?ic=pencil-alt" width="28" height="28" fill="currentColor"></svg>
+          </button>
           
-          <button className='text-black font-medium rounded-lg px-2 py-0.5 bg-yellow-300 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 transform hover:scale-105' onClick={onDelete}>Delete</button>
+          <button className='focus:outline-none transform hover:scale-110' onClick={onDelete}>
+            <svg data-src="https://s.svgbox.net/hero-solid.svg?ic=trash" width="28" height="28" fill="currentColor"></svg>
+          </button>
         </div>
       </>
     )
