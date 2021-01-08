@@ -4,10 +4,10 @@ const EditNote = ({note, edit, submitEdit, onEdit, onDelete}) => {
       <>
         <div className='mb-2'>
           <div className='mb-0.5 font-medium truncate'>{note.title}</div>
-          <div className='overflow-ellipsis overflow-hidden'>{note.content}</div>
+          <div className='free'>{note.content}</div>
         </div>
 
-        <div className='flex'>
+        <div className='flex mt-auto'>
           <button className='text-black font-medium rounded-lg px-2 py-0.5 mr-auto bg-yellow-300 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 transform hover:scale-105' onClick={onEdit}>View</button>
           
           <button className='text-black font-medium rounded-lg px-2 py-0.5 bg-yellow-300 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 transform hover:scale-105' onClick={onDelete}>Delete</button>
@@ -16,7 +16,7 @@ const EditNote = ({note, edit, submitEdit, onEdit, onDelete}) => {
     )
   } else {
     return (
-      <form onSubmit={(e) => submitEdit(e, note.id)}>
+      <form onSubmit={(e) => submitEdit(e, note.id)} className=''>
         <input 
           className='px-1 pb-1 mb-1 w-full focus:outline-none border-b'
           type='text'

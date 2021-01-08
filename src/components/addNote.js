@@ -1,6 +1,6 @@
 const AddNote = ({value, onChange, onSubmit}) => {
   return (
-    <form onSubmit={onSubmit} className='rounded-lg mt-0 m-3 p-3 bg-white shadow-md'>
+    <form onSubmit={onSubmit} className='rounded-lg mx-3 p-3 bg-white shadow-md'>
       <input 
         className='px-1 pb-1 mb-1 w-full focus:outline-none border-b'
         name='input'

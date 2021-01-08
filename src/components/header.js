@@ -6,7 +6,7 @@ const Header = () => (
 );
 
 const Footer = () => (
-  <footer className='font-medium text-center'>
+  <footer className='font-medium text-center mt-auto p-1'>
     Made with ❤️ by Areh Tunde
   </footer>
 );

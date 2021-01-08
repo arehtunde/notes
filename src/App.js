@@ -81,7 +81,7 @@ const App = () => {
   );
 
   return (
-    <div className='font-sans border-box bg-gray-100'>
+    <div className='font-sans border-box bg-gray-100 flex flex-col h-screen'>
       <Header />
       <div className='mx-3'>
         <input 
@@ -99,19 +99,21 @@ const App = () => {
         onSubmit={handleSubmit}
       />
 
-      {
-        filterNotes.map(note => (
-          <div key={note.id} className='rounded-lg m-3 p-3 bg-white shadow-md'>
-            <EditNote 
-              note={note}
-              edit={edit}
-              submitEdit={submitEdit}
-              onEdit={() => setEdit(note.id)}
-              onDelete={() => deleteNote(note.id)}
-            />
-          </div>
-        ))
-      }
+      <div className='gird m-3'>
+        {
+          filterNotes.map(note => (
+            <div key={note.id} className='rounded-lg p-3 bg-white shadow-md flex flex-col'>
+              <EditNote 
+                note={note}
+                edit={edit}
+                submitEdit={submitEdit}
+                onEdit={() => setEdit(note.id)}
+                onDelete={() => deleteNote(note.id)}
+              />
+            </div>
+          ))
+        }
+      </div>
 
       <Footer />
     </div>
