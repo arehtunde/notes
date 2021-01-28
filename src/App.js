@@ -24,8 +24,6 @@ const App = () => {
   }
   const showDate = new Intl.DateTimeFormat(undefined, options).format(currentDate);
 
-  const [date, setDate] = useState('');
-
   useEffect(() => {
     const noteList = JSON.stringify(noteArray);
     localStorage.setItem('noteKey', noteList);
@@ -47,12 +45,9 @@ const App = () => {
       return alert('Empty Note')
     };
 
-    console.log(date)
-
     const noteObject = {
       title: text.input,
       content: text.textarea,
-      date: date,
       id: noteArray.length + 1,
     };
 
@@ -75,7 +70,6 @@ const App = () => {
         return {
           id: note.id,
           title: event.target.input.value,
-          date: setDate(showDate),
           content: event.target.textarea.value,
         }
       } else {
@@ -122,7 +116,6 @@ const App = () => {
               <EditNote 
                 note={note}
                 edit={edit}
-                date={showDate}
                 submitEdit={submitEdit}
                 onEdit={() => setEdit(note.id)}
                 onDelete={() => deleteNote(note.id)}

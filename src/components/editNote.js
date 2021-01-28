@@ -1,4 +1,6 @@
-const EditNote = ({note, edit, date, submitEdit, onEdit, onDelete}) => {
+import ReactModal from 'react-modal';
+
+const EditNote = ({note, edit, submitEdit, onEdit, onDelete}) => {
   if (note.id !== edit) {
     return (
       <>
@@ -6,8 +8,6 @@ const EditNote = ({note, edit, date, submitEdit, onEdit, onDelete}) => {
           <div className='mb-0.5 font-medium truncate'>{note.title}</div>
           <div className='free'>{note.content}</div>
         </div>
-
-        <div>{date}</div>
 
         <div className='flex mt-auto'>
           <button className='mr-auto focus:outline-none transform hover:scale-110' onClick={onEdit}>
