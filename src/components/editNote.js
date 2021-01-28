@@ -1,4 +1,4 @@
-const EditNote = ({note, edit, submitEdit, onEdit, onDelete}) => {
+const EditNote = ({note, edit, date, submitEdit, onEdit, onDelete}) => {
   if (note.id !== edit) {
     return (
       <>
@@ -7,7 +7,7 @@ const EditNote = ({note, edit, submitEdit, onEdit, onDelete}) => {
           <div className='free'>{note.content}</div>
         </div>
 
-        <div></div>
+        <div>{date}</div>
 
         <div className='flex mt-auto'>
           <button className='mr-auto focus:outline-none transform hover:scale-110' onClick={onEdit}>
